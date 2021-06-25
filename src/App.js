@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
 import UserPage from './components/UserPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import { loadUser } from './actions/auth';
+import { connect } from 'react-redux';
 
-const App = () => {
+const App = (props) => {
+	useEffect(() => {
+		props.loadUser();
+	});
+
 	return (
 		<div>
 			<BrowserRouter>
@@ -21,4 +27,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default connect(null, { loadUser })(App);
