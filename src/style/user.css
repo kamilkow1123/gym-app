@@ -1,69 +1,80 @@
 .userpage {
-	font-family: Fira Code;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 1rem;
+  font-family: Fira Code;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .products h2 {
-	text-align: center;
+  text-align: center;
 }
 
 .list {
-	width: 100%;
+  width: 100%;
 }
 
 .list-item {
-	padding: 5px;
-	text-align: center;
+  padding: 5px;
+  text-align: center;
 }
 
 .welcome {
-	max-width: 100%;
-	background-color: #fff;
-	padding: 15px 30px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 15px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .welcome button {
-	border: none;
-	outline: none;
-	appearance: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .logout-button {
-	font-size: 1rem;
-	display: inline-block;
-	padding: 12px 20px;
-	border-radius: 45px;
-	background-image: linear-gradient(to right, #4f9acf 50%, #4f9acf 50%, black);
-	background-size: 200%;
-	background-position: 0%;
-	transition: 0.4s;
-	color: #fff;
-	font-weight: 700;
-	cursor: pointer;
-	text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 45px;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #4f9acf), color-stop(50%, #4f9acf), to(black));
+  background-image: linear-gradient(to right, #4f9acf 50%, #4f9acf 50%, black);
+  background-size: 200%;
+  background-position: 0%;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .logout-button:hover {
-	background-position: 100% 0%;
+  background-position: 100% 0%;
 }
 
 .welcome h2 {
-	color: #888;
-	font-size: 28px;
-	font-weight: 500;
-	margin-bottom: 30px;
+  color: #888;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
 }
 
 .welcome h2 span {
-	color: #4f9acf;
-	font-weight: 700;
+  color: #4f9acf;
+  font-weight: 700;
 }
 
 .products-image {
-	background-image: url('../images/jump.jpg');
+  background-image: url("../images/jump.jpg");
 }
+/*# sourceMappingURL=user.css.map */
