@@ -110,7 +110,7 @@ function RegisterForm({ Register, error }) {
 				<input type="submit" value="REGISTER" className="submit-button" />
 				<p>
 					Already have an account?
-					<Link className="register-button" to="/client">
+					<Link className="register-button" to="/login">
 						Login
 					</Link>
 				</p>
