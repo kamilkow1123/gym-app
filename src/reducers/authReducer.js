@@ -2,7 +2,7 @@ import { USER_LOADED, USER_LOADING, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOU
 
 const INITIAL_STATE = {
 	auth_token      : localStorage.getItem('auth_token'),
-	isAuthenticated : null,
+	isAuthenticated : false,
 	isLoading       : false,
 	user            : null,
 	error           : ''
@@ -33,6 +33,7 @@ export default function(state = INITIAL_STATE, action) {
 				error           : ''
 			};
 		case AUTH_ERROR:
+		case LOGOUT_SUCCESS:
 			localStorage.removeItem('auth_token');
 			return {
 				...state,
@@ -51,16 +52,6 @@ export default function(state = INITIAL_STATE, action) {
 				isAuthenticated : false,
 				isLoading       : false,
 				error           : 'Details do not match!'
-			};
-		case LOGOUT_SUCCESS:
-			localStorage.removeItem('auth_token');
-			return {
-				...state,
-				auth_token      : null,
-				user            : null,
-				isAuthenticated : false,
-				isLoading       : false,
-				error           : ''
 			};
 		default:
 			return state;

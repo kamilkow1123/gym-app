@@ -6,23 +6,8 @@ export const loadUser = () => (dispatch, getState) => {
 	//User Loading
 	dispatch({ type: USER_LOADING });
 
-	//get token from state
-	const token = getState().auth.auth_token;
-
-	//headers
-	const config = {
-		headers : {
-			'Content-Type' : 'application/json'
-		}
-	};
-
-	//if token, add to headers config
-	if (token) {
-		config.headers['Authorization'] = `Token ${token}`;
-	}
-
 	resultsAPI
-		.get('auth/users/me/', config)
+		.get('auth/users/me/', tokenConfig(getState))
 		.then((res) => {
 			dispatch({
 				type    : USER_LOADED,
@@ -66,10 +51,35 @@ export const login = (email, password) => (dispatch) => {
 };
 
 // LOGOUT
-export const logout = () => (dispatch) => {
-	//TODO: axios to api, check token
+export const logout = () => (dispatch, getState) => {
+	resultsAPI
+		.post('auth/token/logout/', null, tokenConfig(getState))
+		.then((res) => {
+			dispatch({
+				type : LOGOUT_SUCCESS
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
 
-	dispatch({
-		type : LOGOUT_SUCCESS
-	});
+//setup config with token - helper function
+export const tokenConfig = (getState) => {
+	//get token from state
+	const token = getState().auth.auth_token;
+
+	//headers
+	const config = {
+		headers : {
+			'Content-Type' : 'application/json'
+		}
+	};
+
+	//if token, add to headers config
+	if (token) {
+		config.headers['Authorization'] = `Token ${token}`;
+	}
+
+	return config;
 };

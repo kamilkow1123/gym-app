@@ -10,12 +10,13 @@ function UserPage({ user, loadUser, logout }) {
 	// const trainer2hours = useResults('Trainer2');
 	// const shopproducts = useResults('ShopProducts1');
 
-	// useEffect(
-	// 	() => {
-	// 		loadUser();
-	// 	},
-	// 	[ user ]
-	// );
+	// console.log(user);
+	useEffect(
+		() => {
+			if (!user) loadUser();
+		},
+		[ user ]
+	);
 	// const user = props.user.details;
 
 	// const renderedAddresses = addresses.map((address) => {
@@ -46,10 +47,14 @@ function UserPage({ user, loadUser, logout }) {
 	// 	);
 	// });
 
-	return (
+	return !user ? (
+		<h1>Loading...</h1>
+	) : (
 		<div className="userpage">
 			<div className="welcome">
-				<h2>{/* Welcome, <span>{user.name}</span> */}</h2>
+				<h2>
+					Welcome, <span>{user.first_name}</span>
+				</h2>
 				<button onClick={logout} className="logout-button">
 					Logout
 				</button>

@@ -6,7 +6,6 @@ import { login, loadUser } from '../actions/auth';
 import { connect } from 'react-redux';
 
 const Login = (props) => {
-	// const [ user, setUser ] = useState({ name: '', email: '' });
 	const [ error, setError ] = useState('');
 
 	useEffect(
@@ -18,8 +17,8 @@ const Login = (props) => {
 		[ props.error ]
 	);
 
-	const Login = (details) => {
-		props.login(details.email, details.password);
+	const Login = ({ email, password }) => {
+		props.login(email, password);
 	};
 
 	return (

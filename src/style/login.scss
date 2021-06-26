@@ -48,10 +48,10 @@ form .form-inner {
 
 form .form-inner h2 {
 	color: #888;
-	font-size: 28px;
+	font-size: 2.5rem;
 	font-weight: 500;
-	margin-bottom: 30px;
-	margin-top: 0;
+	margin-bottom: 50px;
+	margin-top: 20px;
 }
 
 form .form-inner .form-group {
@@ -79,6 +79,7 @@ form .form-inner .form-group input {
 	background-color: #f8f8f8;
 	border-radius: 45px;
 	transition: 0.4s;
+	margin: 10px 0 20px 0;
 }
 
 form .form-inner .form-group input:focus {
@@ -97,6 +98,7 @@ form .form-inner .submit-button {
 	font-weight: 700;
 	cursor: pointer;
 	text-decoration: none;
+	margin: 1rem 0;
 }
 
 form .form-inner .submit-button:hover {
