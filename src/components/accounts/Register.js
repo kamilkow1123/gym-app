@@ -6,13 +6,19 @@ import { register } from '../../actions/auth';
 import { connect } from 'react-redux';
 
 const Register = (props) => {
-	const [ error, setError ] = useState('');
+	const [ error, setError ] = useState([]);
 
 	useEffect(
 		() => {
 			if (props.error !== '') {
-				console.log(props.error);
+				// console.log(props.error);
+				// setError(props.error);
 				setError(props.error[Object.keys(props.error)[0]]);
+				// for (let newError in props.error) {
+				// 	console.log(newError);
+				// 	setError([ ...error, newError ]);
+				// }
+				// console.log(error);
 			}
 		},
 		[ props.error ]
