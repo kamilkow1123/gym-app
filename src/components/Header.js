@@ -18,13 +18,13 @@ const Header = () => {
 	if (width >= 768) {
 		menu = (
 			<div className="nav-menu">
-				<Link to="/trainer" className="item">
+				<Link to="/login" className="item">
 					Trainer
 				</Link>
-				<Link to="/employee" className="item">
+				<Link to="/login" className="item">
 					Employee
 				</Link>
-				<Link to="/client" className="item">
+				<Link to="/login" className="item">
 					Client
 				</Link>
 			</div>
@@ -40,13 +40,13 @@ const Header = () => {
 			<div className="menu">
 				<CSSTransition in={showMobileMenu} unmountOnExit timeout={500} classNames="mobile-menu">
 					<div className="nav-mobile-menu">
-						<Link to="/trainer" className="item-mobile">
+						<Link to="/login" className="item-mobile">
 							Trainer
 						</Link>
-						<Link to="/employee" className="item-mobile">
+						<Link to="/login" className="item-mobile">
 							Employee
 						</Link>
-						<Link to="/client" className="item-mobile">
+						<Link to="/login" className="item-mobile">
 							Client
 						</Link>
 					</div>

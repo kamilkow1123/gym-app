@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginForm({ Login, error }) {
 	const [ details, setDetails ] = useState({ email: '', password: '' });
@@ -35,6 +36,12 @@ function LoginForm({ Login, error }) {
 					/>
 				</div>
 				<input type="submit" value="LOGIN" className="submit-button" />
+				<p>
+					Don't have an account?
+					<Link className="register-button" to="/register">
+						Register
+					</Link>
+				</p>
 			</div>
 		</form>
 	);

@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import { Link, Redirect } from 'react-router-dom';
-import '../style/login.css';
-import { login, loadUser } from '../actions/auth';
+import '../../style/login.css';
+import { register } from '../../actions/auth';
 import { connect } from 'react-redux';
 
-const Login = (props) => {
+const Register = (props) => {
 	const [ error, setError ] = useState('');
 
 	useEffect(
 		() => {
 			if (props.error !== '') {
-				setError('Details do not match!');
+				console.log(props.error);
+				setError(props.error[Object.keys(props.error)[0]]);
 			}
 		},
 		[ props.error ]
 	);
 
-	const Login = ({ email, password }) => {
-		props.login(email, password);
+	const Register = (details) => {
+		props.register(details);
 	};
 
 	return (
@@ -26,10 +27,10 @@ const Login = (props) => {
 			{!props.isAuthenticated ? (
 				<div className="login">
 					<Link to="/" className="back-button">{`< back`}</Link>
-					<LoginForm Login={Login} error={error} />
+					<RegisterForm Register={Register} error={error} />
 				</div>
 			) : (
-				<Redirect to="/user" />
+				<Redirect to="/login" />
 			)}
 		</div>
 	);
@@ -42,4 +43,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { login, loadUser })(Login);
+export default connect(mapStateToProps, { register })(Register);

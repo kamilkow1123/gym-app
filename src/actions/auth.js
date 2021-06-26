@@ -1,4 +1,13 @@
-import { USER_LOADED, USER_LOADING, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS } from './types';
+import {
+	USER_LOADED,
+	USER_LOADING,
+	AUTH_ERROR,
+	LOGIN_SUCCESS,
+	LOGIN_FAIL,
+	LOGOUT_SUCCESS,
+	REGISTER_SUCCESS,
+	REGISTER_FAIL
+} from './types';
 import resultsAPI from '../apis/resultsAPI';
 
 //check token & load user
@@ -46,6 +55,35 @@ export const login = (email, password) => (dispatch) => {
 			console.log(err);
 			dispatch({
 				type : LOGIN_FAIL
+			});
+		});
+};
+
+//register user
+export const register = (details) => (dispatch) => {
+	//headers
+	const config = {
+		headers : {
+			'Content-Type' : 'application/json'
+		}
+	};
+
+	//Request body
+	const body = JSON.stringify(details);
+	// console.log(body);
+
+	resultsAPI
+		.post('auth/users/', body, config)
+		.then((res) => {
+			dispatch({
+				type : REGISTER_SUCCESS
+			});
+		})
+		.catch((err) => {
+			console.log(err.response.data);
+			dispatch({
+				type    : REGISTER_FAIL,
+				payload : err.response.data
 			});
 		});
 };

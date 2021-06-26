@@ -50,8 +50,8 @@ form .form-inner h2 {
 	color: #888;
 	font-size: 2.5rem;
 	font-weight: 500;
-	margin-bottom: 50px;
-	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-top: 10px;
 }
 
 form .form-inner .form-group {
@@ -79,7 +79,7 @@ form .form-inner .form-group input {
 	background-color: #f8f8f8;
 	border-radius: 45px;
 	transition: 0.4s;
-	margin: 10px 0 20px 0;
+	// margin: 10px 0 20px 0;
 }
 
 form .form-inner .form-group input:focus {
@@ -103,6 +103,17 @@ form .form-inner .submit-button {
 
 form .form-inner .submit-button:hover {
 	background-position: 100% 0%;
+}
+
+form .form-inner p {
+	color: #666;
+	font-size: 14px;
+}
+
+.register-button {
+	text-decoration: none;
+	padding: 5px;
+	color: #666;
 }
 
 .back-button {
@@ -130,4 +141,5 @@ form .form-inner .submit-button:hover {
 .error {
 	color: red;
 	margin-bottom: 30px;
+	word-wrap: break-word;
 }
