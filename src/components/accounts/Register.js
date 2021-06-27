@@ -6,19 +6,18 @@ import { register } from '../../actions/auth';
 import { connect } from 'react-redux';
 
 const Register = (props) => {
-	const [ error, setError ] = useState([]);
+	const [ errors, setErrors ] = useState({});
 
 	useEffect(
 		() => {
 			if (props.error !== '') {
-				// console.log(props.error);
-				// setError(props.error);
-				setError(props.error[Object.keys(props.error)[0]]);
-				// for (let newError in props.error) {
-				// 	console.log(newError);
-				// 	setError([ ...error, newError ]);
-				// }
-				// console.log(error);
+				let tempErrors = {};
+
+				for (let newError in props.error) {
+					if (newError === 're_password') tempErrors[newError] = `Password is required`;
+					else tempErrors[newError] = `${newError[0].toUpperCase() + newError.slice(1)} is required`;
+				}
+				setErrors(tempErrors);
 			}
 		},
 		[ props.error ]
@@ -33,7 +32,7 @@ const Register = (props) => {
 			{!props.isAuthenticated ? (
 				<div className="login">
 					<Link to="/" className="back-button">{`< back`}</Link>
-					<RegisterForm Register={Register} error={error} />
+					<RegisterForm Register={Register} errors={errors} />
 				</div>
 			) : (
 				<Redirect to="/login" />

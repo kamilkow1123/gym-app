@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function RegisterForm({ Register, error }) {
+function RegisterForm({ Register, errors }) {
 	const [ details, setDetails ] = useState({
 		username    : '',
 		email       : '',
@@ -14,21 +14,6 @@ function RegisterForm({ Register, error }) {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// if (details.password !== details.re_password) {
-		// 	setError('Passwords do not match!');
-		// } else if (
-		// 	details.username === '' ||
-		// 	details.first_name === '' ||
-		// 	details.last_name === '' ||
-		// 	details.phone === '' ||
-		// 	details.email === '' ||
-		// 	details.password === '' ||
-		// 	details.re_password === ''
-		// ) {
-		// 	setError('Fields cannot be empty!');
-		// } else {
-		// 	Register(details);
-		// }
 		Register(details);
 	};
 
@@ -36,7 +21,7 @@ function RegisterForm({ Register, error }) {
 		<form onSubmit={submitHandler}>
 			<div className="form-inner">
 				<h2>Register</h2>
-				{error !== '' ? <div className="error">{error}</div> : ''}
+				{/* {error !== '' ? <div className="error">{error}</div> : ''} */}
 				<div className="form-group">
 					<label htmlFor="username">Username:</label>
 					<input
@@ -46,6 +31,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, username: e.target.value })}
 						value={details.username}
 					/>
+					{errors.username && <p>{errors.username}</p>}
 				</div>
 				<div className="form-group">
 					<label htmlFor="email">Email:</label>
@@ -56,6 +42,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, email: e.target.value })}
 						value={details.email}
 					/>
+					{errors.email && <p>{errors.email}</p>}
 				</div>
 				<div className="form-group">
 					<label htmlFor="first_name">First Name:</label>
@@ -66,6 +53,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, first_name: e.target.value })}
 						value={details.first_name}
 					/>
+					{errors.first_name && <p>{errors.first_name}</p>}
 				</div>
 				<div className="form-group">
 					<label htmlFor="last_name">Last Name:</label>
@@ -76,6 +64,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, last_name: e.target.value })}
 						value={details.last_name}
 					/>
+					{errors.last_name && <p>{errors.last_name}</p>}
 				</div>
 				<div className="form-group">
 					<label htmlFor="phone">Phone number:</label>
@@ -86,6 +75,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, phone: e.target.value })}
 						value={details.phone}
 					/>
+					{errors.phone && <p>{errors.phone}</p>}
 				</div>
 				<div className="form-group">
 					<label htmlFor="password">Password:</label>
@@ -96,9 +86,10 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, password: e.target.value })}
 						value={details.password}
 					/>
+					{errors.password && <p>{errors.password}</p>}
 				</div>
 				<div className="form-group">
-					<label htmlFor="password">Confirm Password:</label>
+					<label htmlFor="re_password">Confirm Password:</label>
 					<input
 						type="password"
 						name="re_password"
@@ -106,6 +97,7 @@ function RegisterForm({ Register, error }) {
 						onChange={(e) => setDetails({ ...details, re_password: e.target.value })}
 						value={details.re_password}
 					/>
+					{errors.re_password && <p>{errors.re_password}</p>}
 				</div>
 				<input type="submit" value="REGISTER" className="submit-button" />
 				<p>
