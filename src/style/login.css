@@ -161,4 +161,9 @@ form .form-inner p {
 .error {
   color: red;
 }
+
+.error-login {
+  color: red;
+  padding-bottom: 2rem;
+}
 /*# sourceMappingURL=login.css.map */
